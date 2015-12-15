@@ -1,6 +1,7 @@
 {
-    "name": "gontero/annotation-acl",
+    "name": "gontero/gontero-acl",
     "description": "Acl based on annotations",
+    "version": "dev-master",
     "keywords": [
         "annotation",
         "acl"
