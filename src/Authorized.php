@@ -2,7 +2,7 @@
 namespace GonteroAcl;
 
 use GonteroAcl\Model\AclUser;
-use GonteroAcl\Model\Role;
+use GonteroAcl\Factory\Role;
 use GonteroAcl\Model\NoUser;
 use GonteroAcl\Exception\UnathorizedException;
 
@@ -27,7 +27,7 @@ class Authorized
             $this->user = $user;
         }
         if(empty($roles)) {
-            $this->roles = [new Role\Guest()];
+            $this->roles = [Role::factory('guest')];
         } else {
             $this->roles = $roles;
         }
@@ -36,11 +36,14 @@ class Authorized
 
     public function __invoke()
     {
-        $intersec = array_intersect($this->getUser()->getRoles(),$this->getRoles());
-        if(empty($intersec)) {
-            throw new UnathorizedException();
+        foreach ($this->getUser()->getRoles() as $userRole) {
+            foreach ($this->getRoles() as $actionRole) {
+                if(strtolower($userRole->getName()) == strtolower($actionRole->getName())) {
+                    return true;
+                }
+            }
         }
-        return true;
+        throw new UnathorizedException();
     }
 
     /**
@@ -52,7 +55,7 @@ class Authorized
     }
 
     /**
-     * @return string[]
+     * @return \GonteroAcl\Model\RoleInterface[]
      */
     public function getRoles()
     {

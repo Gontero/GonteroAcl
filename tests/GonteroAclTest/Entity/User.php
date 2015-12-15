@@ -16,4 +16,14 @@ class User implements AclUser
     {
         return $this->roles;
     }
+
+    public function getEmail()
+    {
+        return null;
+    }
+
+    public function getPassword()
+    {
+        return null;
+    }
 }

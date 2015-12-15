@@ -25,7 +25,7 @@ class Module
 
         $eventManager->attach(
             MvcEvent::EVENT_DISPATCH,
-            array($serviceManager->get('acl_listener'), 'onDispach'),
+            array($serviceManager->get('GonteroAclListener'), 'onDispach'),
             100
         );
     }

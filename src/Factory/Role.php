@@ -1,23 +1,16 @@
 <?php
 namespace GonteroAcl\Factory;
 
-use GonteroAcl\Model\Role as RoleNameSpace;
+use GonteroAcl\Model\Role as RoleModel;
 
 class Role
 {
+    /**
+     * @param string $name
+     * @return \GonteroAcl\Model\RoleInterface
+     */
     public static function factory($name)
     {
-        switch (strtolower($name)) {
-            case 'admin':
-                $role = new RoleNameSpace\Admin();
-                break;
-            case 'user':
-                $role = new RoleNameSpace\User();
-                break;
-            default :
-                $role = new RoleNameSpace\Guest();
-                break;
-        }
-        return $role;
+        return new RoleModel(strtolower($name));
     }
 }

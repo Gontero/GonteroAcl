@@ -7,7 +7,7 @@ use Zend\Code\Annotation\AnnotationManager;
 use Zend\Code\Annotation\Parser;
 use Zend\Code\Reflection\ClassReflection;
 
-use GonteroAcl\Model\Role\Guest;
+use GonteroAcl\Factory\Role as RoleFactory;
 
 class Annotation
 {
@@ -47,7 +47,7 @@ class Annotation
      */
     public function getRoles()
     {
-        $roles = array(new Guest());
+        $roles = array(RoleFactory::factory('guest'));
         if ($this->getAnnotations() instanceof AnnotationCollection) {
             foreach ($this->getAnnotations() as $annotation) {
                 if ($annotation instanceof Role) {

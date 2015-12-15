@@ -11,4 +11,14 @@ class NoUser implements AclUser
             \GonteroAcl\Factory\Role::factory('guest')
         );
     }
+
+    public function getEmail()
+    {
+        return null;
+    }
+
+    public function getPassword()
+    {
+        return null;
+    }
 }

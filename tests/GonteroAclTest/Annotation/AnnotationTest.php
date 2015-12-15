@@ -25,7 +25,8 @@ class AnnotationTest extends PHPUnit_Framework_TestCase
         $annotation->setObject($this->controller);
         $annotation->setMethod('adminAction');
         $roles = $annotation->getRoles();
-        $this->assertNotInstanceOf(\GonteroAcl\Model\Role\Guest::class, $roles[0]);
+        
+        $this->assertNotSame('guest', $roles[0]->getName());
     }
 
     public function testNoAction()
@@ -34,7 +35,7 @@ class AnnotationTest extends PHPUnit_Framework_TestCase
         $annotation->setObject($this->controller);
         $annotation->setMethod('fdsfdsfd');
         $roles = $annotation->getRoles();
-        $this->assertInstanceOf(\GonteroAcl\Model\Role\Guest::class, $roles[0]);
+        $this->assertSame('guest', $roles[0]->getName());
     }
 
     public function testHasRole()
@@ -43,7 +44,7 @@ class AnnotationTest extends PHPUnit_Framework_TestCase
         $annotation->setObject($this->controller);
         $annotation->setMethod('indexAction');
         $roles = $annotation->getRoles();
-        $this->assertInstanceOf(\GonteroAcl\Model\Role\Guest::class, $roles[0]);
+        $this->assertSame('guest', $roles[0]->getName());
     }
 
 }

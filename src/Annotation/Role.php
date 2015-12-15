@@ -2,6 +2,8 @@
 
 namespace GonteroAcl\Annotation;
 
+use GonteroAcl\Model\RoleInterface;
+
 /**
  * @Annotation
  */
@@ -9,6 +11,9 @@ class Role
 {
     private $roles;
 
+    /**
+     * @param array $params
+     */
     public function __construct($params)
     {
         $this->roles = array();
@@ -17,6 +22,9 @@ class Role
         }
     }
 
+    /**
+     * @return RoleInterface
+     */
     public function getRoles() {
         return $this->roles;
     }
