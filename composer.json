@@ -1,7 +1,7 @@
 {
     "name": "gontero/gontero-acl",
     "description": "Acl based on annotations",
-    "version": "dev-master",
+    "type": "library",
     "keywords": [
         "annotation",
         "acl"
@@ -33,7 +33,10 @@
         "psr-4": {
             "GonteroAcl\\": "src/",
             "GonteroAclTest\\": "tests/GonteroAcl"
-        }
+        },
+        "classmap": [
+            "./Module.php"
+        ]
     },
     "require-dev": {
         "phpunit/phpunit": "4.7.*",
