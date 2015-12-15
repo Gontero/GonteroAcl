@@ -1,4 +1,4 @@
-# This is annotation plugin to ACL
+# Annotation ACL plugin for Zend Framework 2
 
 ## Requirements
 
