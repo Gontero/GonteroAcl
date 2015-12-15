@@ -35,7 +35,7 @@ class IndexController extends AbstractActionController
 return array(
   'modules' => array(
       // other modules
-      'ZfAnnotation'
+      'GonteroAcl'
   ),
   // other content
 );
