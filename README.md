@@ -44,8 +44,12 @@ return array(
 ### Configuration:
 
 ```
-array(
-  'GonteroAcl' => array(
-  )
-)
+return array(
+    'gontero-acl' => array(
+        // if you use Auth adapter inside this module u can use bCrypt cost
+        'bCryptCost' => 4,
+        // if you use Doctrine its name of user entity
+        'userEntity' => '',
+    )
+);
 ```
