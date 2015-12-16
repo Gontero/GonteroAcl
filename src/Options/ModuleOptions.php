@@ -14,7 +14,7 @@ class ModuleOptions extends AbstractOptions
     /**
      * @var string
      */
-    protected $userEntity = '';
+    protected $userEntity = '\User\Entity\User';
 
     /**
      * @var int
