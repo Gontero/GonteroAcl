@@ -28,7 +28,7 @@
         "zendframework/zend-http": ">=2.4",
         "zendframework/zend-console": ">=2.4",
         "doctrine/common": ">=2.1",
-        "doctrine/doctrine-orm-module": "0.7.*"
+        "doctrine/doctrine-orm-module": "dev-master"
     },
     "autoload": {
         "psr-4": {
